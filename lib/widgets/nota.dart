@@ -21,7 +21,9 @@ class Nota extends StatelessWidget {
         );
       },
       child: Card(
+        margin: const EdgeInsets.all(3.0),
         child: ListTile(
+          isThreeLine: true,
           title: Text(
             nota.titulo,
             maxLines: 1,
@@ -29,7 +31,7 @@ class Nota extends StatelessWidget {
           ),
           subtitle: Text(
             nota.cuerpo,
-            maxLines: 2,
+            maxLines: 3,
             overflow: TextOverflow.fade,
           ),
         ),

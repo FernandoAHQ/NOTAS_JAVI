@@ -22,29 +22,26 @@ class _NuevaNotaState extends State<NuevaNota> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+          'CREAR UNA NUEVA NOTA',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        ),
         body: Padding(
-          padding: EdgeInsets.all(25),
+          padding: const EdgeInsets.all(25),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const Text(
-                  'Nueva Nota',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.amber,
-                    letterSpacing: 10,
-                  ),
-                ),
-                const SizedBox(
-                  height: 28.0,
-                ),
                 TextFormField(
                   decoration: const InputDecoration(
                       labelText: 'Titulo de la nota', icon: Icon(Icons.note)),
                   validator: (valor) {
-                    if (valor!.length <= 3 || valor == null || valor.isEmpty) {
+                    if (valor!.length <= 3 || valor.isEmpty) {
                       return 'No son validos textos menores a 3';
                     }
                     _textoTitulo = valor;
@@ -54,6 +51,7 @@ class _NuevaNotaState extends State<NuevaNota> {
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Cuerpo de la nota',
+                    icon: Icon(Icons.abc),
                   ),
                   minLines: 4,
                   maxLines: null,
@@ -65,6 +63,7 @@ class _NuevaNotaState extends State<NuevaNota> {
                     return null;
                   },
                 ),
+                const SizedBox(height: 25.0,),
                 ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
