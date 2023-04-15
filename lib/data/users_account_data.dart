@@ -11,12 +11,3 @@ List<CuentaModel> cuentas = [
   ),
 ];
 
-bool obtenerDatosDeUsuario(String identificador, String contrasena){
-  
-  for (var element in cuentas) {
-    if ((identificador == element.usuario || identificador == element.correo) && contrasena == element.contrasena) {
-      return true;
-    }
-  }
-  return false;
-}
